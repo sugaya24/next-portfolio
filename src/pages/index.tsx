@@ -1,12 +1,13 @@
 import Head from 'next/head';
 // import Image from 'next/image';
-import { createClient } from 'contentful';
+import { createClient, EntryCollection } from 'contentful';
 
 import styles from '@/styles/Home.module.css';
-import { IBlogPost, IBlogPostFields } from '../../@types/generated/contentful';
+import { IBlogPostFields } from '../../@types/generated/contentful';
+import Post from '@/components/Post';
 
 type Props = {
-  posts: IBlogPost[];
+  posts: EntryCollection<IBlogPostFields>;
 };
 
 export async function getStaticProps() {
@@ -18,7 +19,7 @@ export async function getStaticProps() {
     content_type: `blogPost`,
   });
 
-  return { props: { posts: res.items } };
+  return { props: { posts: res } };
 }
 
 const Home: React.FC<Props> = ({ posts }) => {
@@ -32,12 +33,8 @@ const Home: React.FC<Props> = ({ posts }) => {
 
       <main>
         <h1>Yuki Sugaya</h1>
-        {posts.map((post: IBlogPost, index) => (
-          <div key={index}>
-            <h2>
-              {index + 1}: {post.fields.title}
-            </h2>
-          </div>
+        {posts.items.map((post, index) => (
+          <Post key={index} post={post} index={index} />
         ))}
       </main>
     </div>
