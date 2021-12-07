@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { createClient } from 'contentful';
 
 import styles from '@/styles/Home.module.css';
-import { IBlogPost, IBlogPostFields } from '@types/generated/contentful';
+import { IBlogPost, IBlogPostFields } from '../../@types/generated/contentful';
 
 type Props = {
   posts: IBlogPost[];
