@@ -96,18 +96,14 @@ const Navbar: React.FC = () => {
               <Box display={{ base: `inline-block`, md: `none` }}>
                 <Menu>
                   <MenuButton
-                    as={Button}
+                    as={IconButton}
+                    icon={<HamburgerIcon w={5} h={5} />}
                     rounded={`full`}
-                    variant={`link`}
+                    variant={`ghost`}
                     cursor={`pointer`}
+                    aria-label={`Toggle Navigation`}
                     minW={0}
-                  >
-                    <IconButton
-                      icon={<HamburgerIcon w={5} h={5} />}
-                      variant={`ghost`}
-                      aria-label={`Toggle Navigation`}
-                    />
-                  </MenuButton>
+                  />
                   <MenuList alignItems={`center`}>
                     <MenuItem>Works</MenuItem>
                     <MenuItem>About</MenuItem>
