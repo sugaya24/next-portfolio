@@ -4,7 +4,9 @@ import { createClient, EntryCollection } from 'contentful';
 
 import styles from '@/styles/Home.module.css';
 import { IBlogPostFields } from '../../@types/generated/contentful';
+import { Box } from '@chakra-ui/react';
 import Post from '@/components/Post';
+import Works from '@/components/Works';
 
 type Props = {
   posts: EntryCollection<IBlogPostFields>;
@@ -24,7 +26,7 @@ export async function getStaticProps() {
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <div className={styles.container}>
+    <Box className={`index`}>
       <Head>
         <title>Yuki Sugaya Portfolio</title>
         <meta name="description" content="Yuki Sugaya Portfolio" />
@@ -32,12 +34,12 @@ const Home: React.FC<Props> = ({ posts }) => {
       </Head>
 
       <main>
-        <h1>Yuki Sugaya</h1>
+        <Works />
         {posts.items.map((post, index) => (
           <Post key={index} post={post} index={index} />
         ))}
       </main>
-    </div>
+    </Box>
   );
 };
 
