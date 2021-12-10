@@ -1,12 +1,15 @@
 import { ReactNode } from 'react';
 import Navbar from './Navbar';
+import { Box, Container } from '@chakra-ui/react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <Box>
       <Navbar />
-      <div className="page-content">{children}</div>
-    </div>
+      <Container pt={16} maxW={`3xl`}>
+        {children}
+      </Container>
+    </Box>
   );
 };
 
