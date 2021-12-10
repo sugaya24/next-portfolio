@@ -59,6 +59,7 @@ const About = () => {
           p={4}
           w={`200px`}
           h={`200px`}
+          zIndex={`-1`}
           _after={{
             transition: `all .3s ease`,
             content: `""`,
