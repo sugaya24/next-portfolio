@@ -24,10 +24,9 @@ const workData = [
 
 const Works = () => {
   return (
-    <Box>
+    <Box mb={16}>
       <Heading
         as={`h2`}
-        size={`lg`}
         p={2}
         bgClip={`text`}
         bgGradient={colors.headingGradient}

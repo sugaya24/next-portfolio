@@ -31,7 +31,7 @@ const About = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box>
+    <Box mb={16}>
       <Heading
         as={`h2`}
         p={2}
