@@ -4,9 +4,9 @@ import { createClient, EntryCollection } from 'contentful';
 
 import { IBlogPostFields } from '../../@types/generated/contentful';
 import { Box } from '@chakra-ui/react';
-import Post from '@/components/Post';
 import Works from '@/components/Works';
 import About from '@/components/About';
+import Posts from '@/components/Posts';
 
 type Props = {
   posts: EntryCollection<IBlogPostFields>;
@@ -36,11 +36,7 @@ const Home: React.FC<Props> = ({ posts }) => {
       <main>
         <About />
         <Works />
-        <Box className={`posts`}>
-          {posts.items.map((post, index) => (
-            <Post key={index} post={post} index={index} />
-          ))}
-        </Box>
+        <Posts posts={posts} />
       </main>
     </Box>
   );
