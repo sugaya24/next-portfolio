@@ -1,7 +1,9 @@
+import React from 'react';
+import Link from 'next/link';
 import {
   Box,
   Flex,
-  Link,
+  Link as CuiLink,
   Button,
   Menu,
   MenuButton,
@@ -28,7 +30,7 @@ const DesktopNav = () => {
       spacing={8}
     >
       {NAV_ITEMS.map((item) => (
-        <Link
+        <CuiLink
           key={item.label}
           href={item.href}
           fontSize={`lg`}
@@ -38,7 +40,7 @@ const DesktopNav = () => {
           _hover={{ textDecoration: `none`, color: linkHoverColor }}
         >
           {item.label}
-        </Link>
+        </CuiLink>
       ))}
     </Stack>
   );
@@ -81,9 +83,13 @@ const Navbar: React.FC = () => {
       <Container maxW={`container.lg`}>
         <Flex h={16} alignItems={`center`} justifyContent={`space-between`}>
           <Box>
-            <Heading as={`h1`} size={`md`}>
-              YUKI SUGAYA
-            </Heading>
+            <Link href={`/`}>
+              <CuiLink _hover={{ textDecoration: `none` }}>
+                <Heading as={`h1`} size={`md`}>
+                  YUKI SUGAYA
+                </Heading>
+              </CuiLink>
+            </Link>
           </Box>
 
           <Flex alignItems={`center`}>
