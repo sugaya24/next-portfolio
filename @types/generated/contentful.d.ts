@@ -7,14 +7,11 @@ export interface IBlogPostFields {
   /** Title */
   title: string;
 
-  /** Article */
-  article: Document;
-
   /** Slug */
   slug: string;
 
-  /** Created at */
-  createdAt: string;
+  /** Article */
+  article: string;
 }
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
