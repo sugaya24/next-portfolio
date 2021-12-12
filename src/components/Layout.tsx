@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Navbar from './Navbar';
 import { Box, Container } from '@chakra-ui/react';
+import Footer from './Footer';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -9,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Container pt={16} maxW={`3xl`}>
         {children}
       </Container>
+      <Footer />
     </Box>
   );
 };
