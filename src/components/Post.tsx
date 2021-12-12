@@ -2,34 +2,34 @@ import React from 'react';
 import Link from 'next/link';
 import { IBlogPostFields } from '../../@types/generated/contentful';
 import { Entry } from 'contentful';
-import { Heading, Box, Link as CuiLink } from '@chakra-ui/react';
+import { Heading, Box, Link as CuiLink, Tag, HStack } from '@chakra-ui/react';
+import '../styles/Home.module.css';
 import moment from 'moment';
 
 type Props = {
   post: Entry<IBlogPostFields>;
-  index: number;
 };
 
-const Post: React.FC<Props> = ({ post, index }) => {
+const Post: React.FC<Props> = ({ post }) => {
   const { title, slug } = post.fields;
+  const { tags } = post.metadata;
   const { createdAt } = post.sys;
 
   return (
-    <Box
-      w={`full`}
-      boxShadow={`lg`}
-      rounded={`lg`}
-      padding={`8`}
-      marginBottom={`4`}
-    >
+    <Box w={`full`} rounded={`lg`} padding={`2`} marginBottom={`4`}>
       <Link href={`/posts/${slug}`}>
-        <Heading as="h4">
-          <CuiLink>
-            {index + 1}: {title} {slug}
-          </CuiLink>
+        <Heading as={`h2`} size={`lg`} mb={`2`}>
+          <CuiLink>{title}</CuiLink>
         </Heading>
       </Link>
-      <p>{moment(createdAt).format(`MMM Do YY, hh:mm:ss`)}</p>
+      <HStack mb={2}>
+        {tags.map(({ sys }) => (
+          <Tag key={sys.id} borderRadius={`full`} alignItems={`center`}>
+            {sys.id}
+          </Tag>
+        ))}
+      </HStack>
+      <p>{moment(createdAt).format(`MMMM DD, YYYY`)}</p>
     </Box>
   );
 };

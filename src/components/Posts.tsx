@@ -10,8 +10,6 @@ type Props = {
 };
 
 const Posts: React.FC<Props> = ({ posts }) => {
-  console.log(posts);
-
   return (
     <Box className={`posts`}>
       <Heading
@@ -22,8 +20,8 @@ const Posts: React.FC<Props> = ({ posts }) => {
       >
         Posts
       </Heading>
-      {posts.items.map((post, index) => (
-        <Post key={index} post={post} index={index} />
+      {posts.items.map((post) => (
+        <Post key={post.fields.slug} post={post} />
       ))}
     </Box>
   );
