@@ -1,7 +1,14 @@
 import React from 'react';
 import { createClient, Entry } from 'contentful';
 import { IBlogPostFields } from '../../../@types/generated/contentful';
-import { Box, Heading, Tag, HStack, Divider, Text } from '@chakra-ui/react';
+import {
+  Heading,
+  Tag,
+  HStack,
+  Divider,
+  Text,
+  Container,
+} from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
@@ -55,7 +62,7 @@ const PostDetails: React.VFC<Posts> = ({ posts }) => {
   const { tags } = posts.metadata;
 
   return (
-    <Box>
+    <Container maxW={`container.lg`}>
       <Heading py={4} as={`h1`} size={`2xl`}>
         {title}
       </Heading>
@@ -74,7 +81,7 @@ const PostDetails: React.VFC<Posts> = ({ posts }) => {
       >
         {article}
       </ReactMarkdown>
-    </Box>
+    </Container>
   );
 };
 
