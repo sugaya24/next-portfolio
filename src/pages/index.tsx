@@ -26,18 +26,17 @@ export async function getStaticProps() {
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <Box className={`index`}>
+    <Box className={`children`}>
       <Head>
         <title>Yuki Sugaya Portfolio</title>
         <meta name="description" content="Yuki Sugaya Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
+      <Box className={`main`}>
         <About />
         <Works />
         <Posts posts={posts} />
-      </main>
+      </Box>
     </Box>
   );
 };

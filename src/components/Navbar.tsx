@@ -72,6 +72,7 @@ const Navbar: React.FC = () => {
 
   return (
     <Box
+      className={`navbar`}
       position={`fixed`}
       w={`100%`}
       bg={useColorModeValue(`#ffffff40`, `#20202380`)}
