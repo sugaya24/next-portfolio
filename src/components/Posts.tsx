@@ -21,7 +21,9 @@ const Posts: React.FC<Props> = ({ posts }) => {
         Posts
       </Heading>
       {posts.items.map((post) => (
-        <Post key={post.fields.slug} post={post} />
+        <Box key={post.fields.slug} mb={`2`}>
+          <Post post={post} />
+        </Box>
       ))}
     </Box>
   );
