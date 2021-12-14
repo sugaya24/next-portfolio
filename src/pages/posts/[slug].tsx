@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { createClient, Entry } from 'contentful';
 import { IBlogPostFields } from '../../../@types/generated/contentful';
 import {
@@ -8,12 +9,14 @@ import {
   Divider,
   Text,
   Container,
+  Stack,
+  Skeleton,
 } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
 import { ParsedUrlQuery } from 'querystring';
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import moment from 'moment';
 
 export interface Posts {
@@ -29,7 +32,7 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || ``,
 });
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.getEntries<IBlogPostFields>({
     content_type: `blogPost`,
   });
@@ -51,6 +54,11 @@ export const getStaticProps: GetStaticProps<Posts, Params> = async ({
     content_type: `blogPost`,
     'fields.slug': params!.slug,
   });
+  if (!items.length) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: { posts: items[0] },
     revalidate: 10,
@@ -58,6 +66,17 @@ export const getStaticProps: GetStaticProps<Posts, Params> = async ({
 };
 
 const PostDetails: React.VFC<Posts> = ({ posts }) => {
+  const router = useRouter();
+  if (router.isFallback)
+    return (
+      <Stack>
+        <Skeleton h={`80px`} my={4} />
+        <Skeleton h={`20px`} my={2} />
+        <Divider />
+        <Skeleton h={`80vh`} my={2} />
+      </Stack>
+    );
+
   const { title, article } = posts.fields;
   const { createdAt } = posts.sys;
   const { tags } = posts.metadata;
