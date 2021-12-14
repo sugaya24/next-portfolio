@@ -16,7 +16,7 @@ const Post: React.FC<Props> = ({ post }) => {
   const { createdAt } = post.sys;
 
   return (
-    <Box w={`full`} rounded={`lg`} padding={`2`} marginBottom={`4`}>
+    <Box w={`full`} rounded={`lg`} padding={`2`}>
       <Link href={`/posts/${slug}`}>
         <Heading as={`h2`} size={`lg`} mb={`2`}>
           <CuiLink>{title}</CuiLink>
