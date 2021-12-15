@@ -31,7 +31,7 @@ const PostsPage: React.VFC<Posts> = ({ posts }) => {
         bgClip={`text`}
         bgGradient={colors.headingGradient}
       >
-        Works
+        Posts
       </Heading>
       {posts.items.map((post) => (
         <Box key={post.fields.slug} mb={`2`}>
