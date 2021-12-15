@@ -18,6 +18,26 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons';
 
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: `Works`,
+    href: `works`,
+  },
+  {
+    label: `About`,
+    href: `about`,
+  },
+  {
+    label: `Posts`,
+    href: `posts`,
+  },
+];
+
 const DesktopNav = () => {
   const linkColor = useColorModeValue(`gray.600`, `gray.200`);
   const linkHoverColor = useColorModeValue(`gray.800`, `white`);
@@ -29,42 +49,22 @@ const DesktopNav = () => {
       alignItems={`center`}
       spacing={8}
     >
-      {NAV_ITEMS.map((item) => (
-        <CuiLink
-          key={item.label}
-          href={item.href}
-          fontSize={`lg`}
-          fontWeight={600}
-          lineHeight={`md`}
-          color={linkColor}
-          _hover={{ textDecoration: `none`, color: linkHoverColor }}
-        >
-          {item.label}
-        </CuiLink>
+      {NAV_ITEMS.map(({ href, label }: NavItem) => (
+        <Link key={href} href={`/${href}`}>
+          <CuiLink
+            fontSize={`lg`}
+            fontWeight={600}
+            lineHeight={`md`}
+            color={linkColor}
+            _hover={{ textDecoration: `none`, color: linkHoverColor }}
+          >
+            {label}
+          </CuiLink>
+        </Link>
       ))}
     </Stack>
   );
 };
-
-type NavItem = {
-  label: string;
-  href: string;
-};
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: `Works`,
-    href: `#`,
-  },
-  {
-    label: `About`,
-    href: `#`,
-  },
-  {
-    label: `Contact`,
-    href: `#`,
-  },
-];
 
 const Navbar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -112,9 +112,13 @@ const Navbar: React.FC = () => {
                     minW={0}
                   />
                   <MenuList alignItems={`center`}>
-                    <MenuItem>Works</MenuItem>
-                    <MenuItem>About</MenuItem>
-                    <MenuItem>Contact</MenuItem>
+                    {NAV_ITEMS.map(({ href, label }: NavItem) => (
+                      <Link key={href} href={`/${href}`}>
+                        <CuiLink>
+                          <MenuItem>{label}</MenuItem>
+                        </CuiLink>
+                      </Link>
+                    ))}
                   </MenuList>
                 </Menu>
               </Box>
