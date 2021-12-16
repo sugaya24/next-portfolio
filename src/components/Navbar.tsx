@@ -80,6 +80,7 @@ const Navbar: React.FC = () => {
       css={{ backdropFilter: `blur(10px)` }}
       borderBottom={`1px`}
       borderColor={colorMode === `light` ? `gray.200` : `gray.700`}
+      zIndex={`10`}
     >
       <Container maxW={`container.lg`}>
         <Flex h={16} alignItems={`center`} justifyContent={`space-between`}>
