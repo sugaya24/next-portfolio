@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
     content_type: `blogPost`,
   });
 
-  return { props: { posts: res } };
+  return { props: { posts: res }, revalidate: 1 };
 };
 
 const PostsPage: React.VFC<Posts> = ({ posts }) => {
