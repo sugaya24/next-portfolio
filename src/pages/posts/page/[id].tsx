@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { Box, Center, Heading, Spinner } from '@chakra-ui/react';
 import Pagination from '@/components/Pagination';
 import { createClient } from 'contentful';
 import { IBlogPostFields } from '../../../../@types/generated/contentful';
@@ -70,6 +71,14 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 };
 
 const PostPageId: React.VFC<Props> = ({ posts, totalCount, currentPage }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <Center h={`100%`}>
+        <Spinner size={`xl`} />;
+      </Center>
+    );
+  }
   return (
     <Box>
       <Heading
