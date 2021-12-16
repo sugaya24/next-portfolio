@@ -7,7 +7,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Box className={`layout`} h={`100vh`} display={`flex`} flexDir={`column`}>
       <Navbar />
-      <Container pt={16} maxW={`3xl`} className="main" flex={`1 0 auto`}>
+      <Container
+        pt={16}
+        maxW={`3xl`}
+        className="main"
+        flex={`1 0 auto`}
+        position={`relative`}
+      >
         {children}
       </Container>
       <Footer />

@@ -80,7 +80,7 @@ const PostPageId: React.VFC<Props> = ({ posts, totalCount, currentPage }) => {
     );
   }
   return (
-    <Box>
+    <Box pb={`16`}>
       <Heading
         as={`h2`}
         p={2}
@@ -94,7 +94,9 @@ const PostPageId: React.VFC<Props> = ({ posts, totalCount, currentPage }) => {
           <Post post={post} />
         </Box>
       ))}
-      <Pagination totalCount={totalCount} currentPage={currentPage} />
+      <Center w={`100%`} p={`4`} position={`absolute`} bottom={`0`}>
+        <Pagination totalCount={totalCount} currentPage={currentPage} />
+      </Center>
     </Box>
   );
 };
