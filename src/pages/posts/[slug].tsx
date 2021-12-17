@@ -18,6 +18,7 @@ import remarkGfm from 'remark-gfm';
 import { ParsedUrlQuery } from 'querystring';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import moment from 'moment';
+import CodeBlock from '@/components/CodeComponent';
 
 export interface Posts {
   posts: Entry<IBlogPostFields>;
@@ -96,7 +97,7 @@ const PostDetails: React.VFC<Posts> = ({ posts }) => {
       <Text py={2}>{moment(createdAt).format(`MMMM DD, YYYY`)}</Text>
       <Divider />
       <ReactMarkdown
-        components={ChakraUIRenderer()}
+        components={ChakraUIRenderer({ code: CodeBlock })}
         remarkPlugins={[remarkGfm]}
       >
         {article}
