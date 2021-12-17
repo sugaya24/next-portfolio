@@ -7,8 +7,9 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { ReactNode } from 'react';
+import { IconBaseProps } from 'react-icons/lib';
 
 const SocialButton = ({
   children,
@@ -42,6 +43,25 @@ const SocialButton = ({
   );
 };
 
+type MEDIA_ITEM = {
+  name: string;
+  href: string;
+  iconBase: IconBaseProps;
+};
+
+const MEDIA_ITEMS: Array<MEDIA_ITEM> = [
+  {
+    name: `GitHub`,
+    href: `https://github.com/sugaya24`,
+    iconBase: <FaGithub />,
+  },
+  {
+    name: `LinkedIn`,
+    href: `https://www.linkedin.com/in/yukisugaya/`,
+    iconBase: <FaLinkedin />,
+  },
+];
+
 const Footer = () => {
   return (
     <Box
@@ -60,15 +80,11 @@ const Footer = () => {
       >
         <Text>© 2021 Yuki Sugaya. All rights reserved</Text>
         <Stack direction={`row`} spacing={6}>
-          <SocialButton label={`Twitter`} href={`#`}>
-            <FaTwitter />
-          </SocialButton>
-          <SocialButton label={`YouTube`} href={`#`}>
-            <FaYoutube />
-          </SocialButton>
-          <SocialButton label={`Instagram`} href={`#`}>
-            <FaInstagram />
-          </SocialButton>
+          {MEDIA_ITEMS.map(({ name, href, iconBase }) => (
+            <SocialButton key={name} label={name} href={href}>
+              {iconBase}
+            </SocialButton>
+          ))}
         </Stack>
       </Container>
     </Box>
