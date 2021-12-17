@@ -8,22 +8,29 @@ import {
   useColorMode,
   Container,
   Text,
-  UnorderedList,
   ListItem,
+  List,
+  ListIcon,
 } from '@chakra-ui/react';
 import { colors } from '../../lib/theme';
+import { VscRocket } from 'react-icons/vsc';
+import { FaPencilAlt } from 'react-icons/fa';
 
 const skills = (
   <Box>
     <Heading as={`h4`} size={`md`} textAlign={`left`} pos={`relative`}>
       Skills
     </Heading>
-    <UnorderedList pt={2}>
-      <ListItem>
+    <List pt={`2`}>
+      <ListItem mb={`2`}>
+        <ListIcon as={VscRocket} />
         TypeScript, React, Next.js, Node.js, Express, MongoDB, Firebase
       </ListItem>
-      <ListItem>Figma, Material-UI, Chakra-UI</ListItem>
-    </UnorderedList>
+      <ListItem>
+        <ListIcon as={FaPencilAlt} />
+        Figma, Material-UI, Chakra-UI
+      </ListItem>
+    </List>
   </Box>
 );
 
