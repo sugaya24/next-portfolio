@@ -9,16 +9,16 @@ const workData = [
     src: `/images/calendar_image.png`,
   },
   {
-    title: `Chat`,
-    src: `/images/react_firebase_chat_image.png`,
+    title: `Wordle Clone`,
+    src: `/images/wordle-clone_image.png`,
   },
   {
-    title: `Weather Forecast`,
-    src: `/images/weather_image.png`,
+    title: `Realtime Chat`,
+    src: `/images/next-socketio-chat_image.png`,
   },
   {
-    title: `Twitter Clone`,
-    src: `/images/react_twitter_clone_image.png`,
+    title: `Crypto Dashboard`,
+    src: `/images/crypto-dashboard_image.png`,
   },
 ];
 

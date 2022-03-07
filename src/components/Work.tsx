@@ -2,6 +2,7 @@ import {
   Box,
   Center,
   useColorModeValue,
+  useColorMode,
   Heading,
   Text,
   Stack,
@@ -14,11 +15,13 @@ type Props = {
 };
 
 const Work: React.FC<Props> = ({ title, src }) => {
+  const { colorMode } = useColorMode();
+
   return (
     <Center p={4}>
       <Box
         role={`group`}
-        p={6}
+        p={4}
         maxW={`330px`}
         w={`full`}
         bg={useColorModeValue(`white`, `gray.800`)}
@@ -30,20 +33,22 @@ const Work: React.FC<Props> = ({ title, src }) => {
         <Box
           rounded={`lg`}
           pos={`relative`}
-          height={`230px`}
-          _after={{
-            transition: `all .3s ease`,
-            content: `""`,
-            w: `full`,
-            h: `full`,
-            pos: `absolute`,
-            top: 3,
-            left: 0,
-            backgroundImage: `url(${src})`,
-            filter: `blur(15px)`,
-            zIndex: -1,
-            backgroundSize: `cover`,
-          }}
+          _after={
+            colorMode === `dark`
+              ? {
+                  content: `""`,
+                  w: `full`,
+                  h: `full`,
+                  pos: `absolute`,
+                  top: 3,
+                  left: 0,
+                  backgroundImage: `url(${src})`,
+                  filter: `blur(15px)`,
+                  zIndex: -1,
+                  backgroundSize: `cover`,
+                }
+              : {}
+          }
           _groupHover={{
             _after: {
               filter: `blur(20px)`,
@@ -52,9 +57,8 @@ const Work: React.FC<Props> = ({ title, src }) => {
         >
           <Image
             rounded={`lg`}
-            height={230}
-            width={282}
-            objectFit={`cover`}
+            width={`100%`}
+            objectFit={`contain`}
             src={src}
           />
         </Box>
