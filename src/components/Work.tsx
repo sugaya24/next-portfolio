@@ -1,6 +1,5 @@
 import {
   Box,
-  Center,
   useColorModeValue,
   useColorMode,
   Heading,
@@ -18,21 +17,17 @@ const Work: React.FC<Props> = ({ title, src }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Center p={4}>
+    <Box>
       <Box
-        role={`group`}
         p={4}
-        maxW={`330px`}
-        w={`full`}
         bg={useColorModeValue(`white`, `gray.800`)}
-        boxShadow={`2xl`}
+        boxShadow={useColorModeValue(`base`, `dark-lg`)}
         rounded={`lg`}
-        pos={`relative`}
-        zIndex={-1}
       >
         <Box
           rounded={`lg`}
           pos={`relative`}
+          zIndex={0}
           _after={
             colorMode === `dark`
               ? {
@@ -49,11 +44,6 @@ const Work: React.FC<Props> = ({ title, src }) => {
                 }
               : {}
           }
-          _groupHover={{
-            _after: {
-              filter: `blur(20px)`,
-            },
-          }}
         >
           <Image
             rounded={`lg`}
@@ -62,7 +52,7 @@ const Work: React.FC<Props> = ({ title, src }) => {
             src={src}
           />
         </Box>
-        <Stack pt={10} align={`center`}>
+        <Stack mt={`32px`} align={`center`}>
           <Text color={`gray.500`} fontSize={`sm`}>
             tags...
           </Text>
@@ -72,7 +62,7 @@ const Work: React.FC<Props> = ({ title, src }) => {
           <Stack direction={`row`} align={`center`}></Stack>
         </Stack>
       </Box>
-    </Center>
+    </Box>
   );
 };
 

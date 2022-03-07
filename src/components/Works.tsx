@@ -5,7 +5,7 @@ import Work from './Work';
 
 const workData = [
   {
-    title: `Calender`,
+    title: `Calendar`,
     src: `/images/calendar_image.png`,
   },
   {
@@ -38,6 +38,7 @@ const Works = () => {
         as={`section`}
         mt={0}
         templateColumns={{ base: `repeat(1,1fr)`, sm: `repeat(2,1fr)` }}
+        gap={`6`}
       >
         {workData.map(({ title, src }) => (
           <Work key={title} title={title} src={src} />
