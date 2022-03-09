@@ -2,25 +2,7 @@ import { colors } from '../../lib/theme';
 import { Box, Heading, Grid } from '@chakra-ui/react';
 import React from 'react';
 import Work from './Work';
-
-const workData = [
-  {
-    title: `Calendar`,
-    src: `/images/calendar_image.png`,
-  },
-  {
-    title: `Wordle Clone`,
-    src: `/images/wordle-clone_image.png`,
-  },
-  {
-    title: `Realtime Chat`,
-    src: `/images/next-socketio-chat_image.png`,
-  },
-  {
-    title: `Crypto Dashboard`,
-    src: `/images/crypto-dashboard_image.png`,
-  },
-];
+import { worksData } from '@/data/worksData';
 
 const Works = () => {
   return (
@@ -40,8 +22,14 @@ const Works = () => {
         templateColumns={{ base: `repeat(1,1fr)`, sm: `repeat(2,1fr)` }}
         gap={`6`}
       >
-        {workData.map(({ title, src }) => (
-          <Work key={title} title={title} src={src} />
+        {worksData.map(({ title, src, slug, stackIcon }) => (
+          <Work
+            key={title}
+            title={title}
+            src={src}
+            slug={slug}
+            stackIcon={stackIcon}
+          />
         ))}
       </Grid>
     </Box>
