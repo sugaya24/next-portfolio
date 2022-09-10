@@ -4,12 +4,12 @@ import {
   useColorModeValue,
   useColorMode,
   Heading,
-  Text,
   Stack,
-  Image,
   Link as CuiLink,
   HStack,
+  chakra,
 } from '@chakra-ui/react';
+import NextImage from 'next/image';
 
 type Props = {
   title: string;
@@ -20,6 +20,18 @@ type Props = {
 
 const Work: React.FC<Props> = ({ title, src, slug, stackIcon }) => {
   const { colorMode } = useColorMode();
+  const CustomImage = chakra(NextImage, {
+    shouldForwardProp: (prop) =>
+      [
+        `width`,
+        `height`,
+        `objectFit`,
+        `src`,
+        `alt`,
+        `placeholder`,
+        `blurDataURL`,
+      ].includes(prop),
+  });
 
   return (
     <Box>
@@ -54,16 +66,20 @@ const Work: React.FC<Props> = ({ title, src, slug, stackIcon }) => {
                       backgroundImage: `url(${src})`,
                       filter: `blur(15px)`,
                       zIndex: -1,
-                      backgroundSize: `cover`,
+                      backgroundSize: `contain`,
                     }
                   : {}
               }
             >
-              <Image
+              <CustomImage
                 rounded={`lg`}
-                width={`100%`}
+                width={`400`}
+                height={`300`}
                 objectFit={`contain`}
                 src={src}
+                alt={title}
+                placeholder="blur"
+                blurDataURL={src}
               />
             </Box>
             <Stack mt={`32px`} align={`center`}>
