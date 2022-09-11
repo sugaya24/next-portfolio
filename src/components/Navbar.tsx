@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Link as CuiLink,
-  Button,
   Menu,
   MenuButton,
   MenuList,
@@ -13,8 +12,9 @@ import {
   Stack,
   useColorMode,
   IconButton,
-  Heading,
   Container,
+  Spacer,
+  ButtonGroup,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons';
 
@@ -24,6 +24,10 @@ type NavItem = {
 };
 
 const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: `Home`,
+    href: ``,
+  },
   {
     label: `Works`,
     href: `works`,
@@ -44,6 +48,7 @@ const DesktopNav = () => {
 
   return (
     <Stack
+      mr={8}
       direction={{ base: `row` }}
       display={{ base: `none`, md: `flex` }}
       alignItems={`center`}
@@ -68,7 +73,6 @@ const DesktopNav = () => {
 
 const Navbar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  // const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
     <Box
@@ -82,35 +86,24 @@ const Navbar: React.FC = () => {
       borderColor={colorMode === `light` ? `gray.200` : `gray.700`}
       zIndex={`10`}
     >
-      <Container maxW={`container.lg`}>
+      <Container maxW={`container.md`} p={0}>
         <Flex h={16} alignItems={`center`} justifyContent={`space-between`}>
-          <Box>
-            <Link href={`/`}>
-              <CuiLink _hover={{ textDecoration: `none` }}>
-                <Heading as={`h1`} size={`md`}>
-                  YUKI SUGAYA
-                </Heading>
-              </CuiLink>
-            </Link>
-          </Box>
+          <Spacer />
 
           <Flex alignItems={`center`}>
-            <Stack direction={`row`} spacing={7}>
+            <Stack direction={{ base: `row-reverse`, md: `row` }} spacing={0}>
               <DesktopNav />
-              <Button onClick={toggleColorMode}>
-                {colorMode === `light` ? <MoonIcon /> : <SunIcon />}
-              </Button>
 
               <Box display={{ base: `inline-block`, md: `none` }}>
                 <Menu>
                   <MenuButton
+                    m={0}
                     as={IconButton}
                     icon={<HamburgerIcon w={5} h={5} />}
                     rounded={`full`}
                     variant={`ghost`}
                     cursor={`pointer`}
                     aria-label={`Toggle Navigation`}
-                    minW={0}
                   />
                   <MenuList alignItems={`center`}>
                     {NAV_ITEMS.map(({ href, label }: NavItem) => (
@@ -123,6 +116,17 @@ const Navbar: React.FC = () => {
                   </MenuList>
                 </Menu>
               </Box>
+              <ButtonGroup mr={4}>
+                <IconButton
+                  className="some------"
+                  mr={4}
+                  onClick={toggleColorMode}
+                  rounded="full"
+                  variant="outline"
+                  icon={colorMode === `light` ? <MoonIcon /> : <SunIcon />}
+                  aria-label={`Toggle dark mode`}
+                />
+              </ButtonGroup>
             </Stack>
           </Flex>
         </Flex>
