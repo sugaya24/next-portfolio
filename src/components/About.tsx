@@ -12,11 +12,10 @@ import {
   List,
   ListIcon,
 } from '@chakra-ui/react';
-import { colors } from '../../lib/theme';
 import { VscRocket } from 'react-icons/vsc';
 import { FaPencilAlt } from 'react-icons/fa';
 
-const skills = (
+export const skills = (
   <Box>
     <Heading as={`h4`} size={`md`} textAlign={`left`} pos={`relative`}>
       Skills
@@ -24,11 +23,11 @@ const skills = (
     <List pt={`2`}>
       <ListItem mb={`2`}>
         <ListIcon as={VscRocket} />
-        TypeScript, React, Next.js, Node.js, Express, MongoDB, Firebase
+        TypeScript, React.js, Next.js, Node.js, Express.js, MongoDB, Firebase
       </ListItem>
       <ListItem>
         <ListIcon as={FaPencilAlt} />
-        Figma, Material-UI, Chakra-UI
+        Tailwind CSS, Chakra UI, Figma
       </ListItem>
     </List>
   </Box>
@@ -38,26 +37,18 @@ const About = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box mb={16}>
-      <Heading
-        as={`h2`}
-        p={2}
-        bgClip={`text`}
-        bgGradient={colors.headingGradient}
-      >
-        About
-      </Heading>
+    <Box my={16}>
       <Grid templateColumns={{ base: `1fr`, md: `2fr 1fr` }}>
         <Center px={4} flexDirection={`column`}>
-          <Heading as={`h2`} py={{ base: 4, md: 2 }}>
+          <Heading as={`h2`} w={`full`} py={{ base: 2, md: 0 }}>
             Yuki Sugaya
           </Heading>
-          <Text as={`p`} py={2} textAlign={`center`}>
-            I&apos;m a Frontend Developer based in Vancouver.
+          <Text as={`p`} w="full" color={`gray`} fontWeight="semibold">
+            Frontend Developer
           </Text>
-          <Container pt={6} display={{ base: `none`, md: `block` }}>
+          <Box pt={6} display={{ base: `none`, md: `block` }}>
             {skills}
-          </Container>
+          </Box>
         </Center>
         <Container
           className="image-box"

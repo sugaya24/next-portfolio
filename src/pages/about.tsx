@@ -7,17 +7,14 @@ import {
   Text,
   Grid,
   GridItem,
-  List,
-  ListIcon,
-  ListItem,
   Link as CuiLink,
   useBreakpointValue,
   HStack,
   Icon,
 } from '@chakra-ui/react';
-import { VscRocket } from 'react-icons/vsc';
-import { FaFileAlt, FaLinkedin, FaPencilAlt } from 'react-icons/fa';
+import { FaFileAlt, FaLinkedin } from 'react-icons/fa';
 import { colors } from 'lib/theme';
+import { skills } from '@/components/About';
 
 const profileSrc = `/images/profile.jpeg`;
 
@@ -50,20 +47,10 @@ const ProfileSection = () => {
             )}
           </Heading>
           <Text mb={`5`}>
-            I&apos;m Japanese based in Vancouver. I&apos;m a Front-end Developer
-            and primarily focus on writing clean, elegant and efficient code.
-            Specialize in React.js.
+            I&apos;m a Front-end Developer and primarily focus on writing clean,
+            elegant and efficient code. Specialize in React.js.
           </Text>
-          <List mb={`10`}>
-            <ListItem mb={`2`}>
-              <ListIcon as={VscRocket} />
-              TypeScript, React, Next.js, Node.js, Express, MongoDB, Firebase
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaPencilAlt} />
-              Figma, Material-UI, Chakra-UI
-            </ListItem>
-          </List>
+          <Box mb={10}>{skills}</Box>
           <HStack>
             <CuiLink
               mr={`2`}

@@ -9,7 +9,8 @@ const Works = () => {
     <Box mb={16}>
       <Heading
         as={`h2`}
-        p={2}
+        px={2}
+        mb={8}
         bgClip={`text`}
         bgGradient={colors.headingGradient}
       >

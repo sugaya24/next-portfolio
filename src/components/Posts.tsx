@@ -23,7 +23,8 @@ const Posts: React.FC<Props> = ({ posts }) => {
     <Box className={`posts`}>
       <Heading
         as={`h2`}
-        p={2}
+        px={2}
+        mb={8}
         bgClip={`text`}
         bgGradient={colors.headingGradient}
       >
