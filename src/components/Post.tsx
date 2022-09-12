@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { IBlogPostFields } from '../../@types/generated/contentful';
 import { Entry } from 'contentful';
@@ -14,6 +14,22 @@ const Post: React.FC<Props> = ({ post }) => {
   const { title, slug } = post.fields;
   const { tags } = post.metadata;
   const { createdAt } = post.sys;
+  const [tagsName, setTagsName] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const tagsArr = tags.map((tag) => {
+        return [`tag`, tag.sys.id];
+      });
+      const params = new URLSearchParams(tagsArr);
+      const res = await fetch(`/api/tags/?${params}`);
+      return res.json();
+    };
+    fetchData().then((data) => setTagsName(data.tags));
+    return () => {
+      fetchData();
+    };
+  }, []);
 
   return (
     <Box w={`full`} rounded={`lg`} padding={`2`}>
@@ -23,9 +39,9 @@ const Post: React.FC<Props> = ({ post }) => {
         </Heading>
       </Link>
       <HStack mb={2}>
-        {tags.map(({ sys }) => (
-          <Tag key={sys.id} borderRadius={`full`} alignItems={`center`}>
-            {sys.id}
+        {tagsName.map((tag) => (
+          <Tag key={tag} borderRadius={`full`} alignItems={`center`}>
+            {tag}
           </Tag>
         ))}
       </HStack>
