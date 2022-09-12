@@ -10,10 +10,7 @@ import {
   Text,
   ListItem,
   List,
-  ListIcon,
 } from '@chakra-ui/react';
-import { VscRocket } from 'react-icons/vsc';
-import { FaPencilAlt } from 'react-icons/fa';
 
 export const skills = (
   <Box>
@@ -22,13 +19,9 @@ export const skills = (
     </Heading>
     <List pt={`2`}>
       <ListItem mb={`2`}>
-        <ListIcon as={VscRocket} />
-        TypeScript, React.js, Next.js, Node.js, Express.js, MongoDB, Firebase
+        🚀 TypeScript, React.js, Next.js, Node.js, Express.js, MongoDB, Firebase
       </ListItem>
-      <ListItem>
-        <ListIcon as={FaPencilAlt} />
-        Tailwind CSS, Chakra UI, Figma
-      </ListItem>
+      <ListItem>🎨 Tailwind CSS, Chakra UI, Figma</ListItem>
     </List>
   </Box>
 );
