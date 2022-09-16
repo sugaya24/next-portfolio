@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Box,
@@ -23,7 +23,7 @@ export type TWorkData = {
   slug: string;
   stack: string[];
   stackIcon?: any;
-  description: string;
+  description: ReactElement;
   link: {
     url?: string;
     github?: string;
@@ -98,9 +98,7 @@ const WorkDetail = () => {
           </HStack>
         )}
         <Divider mt={`24px`} />
-        <Box mt={`24px`}>
-          <Text>{description}</Text>
-        </Box>
+        <Box mt={`24px`}>{description}</Box>
       </Box>
     </Box>
   );

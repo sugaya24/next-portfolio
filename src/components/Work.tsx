@@ -73,8 +73,8 @@ const Work: React.FC<Props> = ({ title, src, slug, stackIcon }) => {
             >
               <CustomImage
                 rounded={`lg`}
-                width={`400`}
-                height={`300`}
+                width={`1600`}
+                height={`1200`}
                 objectFit={`contain`}
                 src={src}
                 alt={title}

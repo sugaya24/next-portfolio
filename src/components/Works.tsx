@@ -23,7 +23,7 @@ const Works = () => {
         templateColumns={{ base: `repeat(1,1fr)`, sm: `repeat(2,1fr)` }}
         gap={`6`}
       >
-        {worksData.map(({ title, src, slug, stackIcon }) => (
+        {worksData.slice(0, 4).map(({ title, src, slug, stackIcon }) => (
           <Work
             key={title}
             title={title}
