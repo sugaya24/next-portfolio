@@ -9,6 +9,7 @@ import { Entry } from 'contentful';
 import { ParsedUrlQuery } from 'querystring';
 import { colors } from 'lib/theme';
 import Post from '@/components/Post';
+import Head from 'next/head';
 
 const PER_PAGE = 5;
 
@@ -80,24 +81,31 @@ const PostPageId: React.VFC<Props> = ({ posts, totalCount, currentPage }) => {
     );
   }
   return (
-    <Box pb={`16`}>
-      <Heading
-        as={`h2`}
-        p={2}
-        bgClip={`text`}
-        bgGradient={colors.headingGradient}
-      >
-        Posts
-      </Heading>
-      {posts.map((post) => (
-        <Box key={post.fields.slug} mb={`2`}>
-          <Post post={post} />
-        </Box>
-      ))}
-      <Center w={`100%`} p={`4`} position={`absolute`} bottom={`0`}>
-        <Pagination totalCount={totalCount} currentPage={currentPage} />
-      </Center>
-    </Box>
+    <>
+      <Head>
+        <title>Posts | Yuki Sugaya Portfolio</title>
+        <meta name="description" content="Yuki Sugaya Portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Box pb={`16`}>
+        <Heading
+          as={`h2`}
+          p={2}
+          bgClip={`text`}
+          bgGradient={colors.headingGradient}
+        >
+          Posts
+        </Heading>
+        {posts.map((post) => (
+          <Box key={post.fields.slug} mb={`2`}>
+            <Post post={post} />
+          </Box>
+        ))}
+        <Center w={`100%`} p={`4`} position={`absolute`} bottom={`0`}>
+          <Pagination totalCount={totalCount} currentPage={currentPage} />
+        </Center>
+      </Box>
+    </>
   );
 };
 

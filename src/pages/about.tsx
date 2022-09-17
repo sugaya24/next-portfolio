@@ -15,6 +15,7 @@ import {
 import { FaFileAlt, FaLinkedin } from 'react-icons/fa';
 import { colors } from 'lib/theme';
 import { skills } from '@/components/About';
+import Head from 'next/head';
 
 const profileSrc = `/images/profile.jpeg`;
 
@@ -80,21 +81,28 @@ const ProfileSection = () => {
 
 const AboutPage = () => {
   return (
-    <Box h={`100%`} pb={`16`} display={`flex`} flexDir={`column`}>
-      <Box w={`100%`}>
-        <Heading
-          as={`h2`}
-          p={2}
-          bgClip={`text`}
-          bgGradient={colors.headingGradient}
-        >
-          About Me
-        </Heading>
+    <>
+      <Head>
+        <title>About | Yuki Sugaya Portfolio</title>
+        <meta name="description" content="Yuki Sugaya Portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Box h={`100%`} pb={`16`} display={`flex`} flexDir={`column`}>
+        <Box w={`100%`}>
+          <Heading
+            as={`h2`}
+            p={2}
+            bgClip={`text`}
+            bgGradient={colors.headingGradient}
+          >
+            About Me
+          </Heading>
+        </Box>
+        <Center w={`100%`} h={`100%`} flex={{ base: `0`, md: `1 0 auto` }}>
+          <ProfileSection />
+        </Center>
       </Box>
-      <Center w={`100%`} h={`100%`} flex={{ base: `0`, md: `1 0 auto` }}>
-        <ProfileSection />
-      </Center>
-    </Box>
+    </>
   );
 };
 
