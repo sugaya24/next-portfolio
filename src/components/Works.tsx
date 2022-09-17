@@ -1,8 +1,18 @@
 import { colors } from '../../lib/theme';
-import { Box, Heading, Grid } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Grid,
+  Button,
+  ButtonGroup,
+  Center,
+  Icon,
+  Link,
+} from '@chakra-ui/react';
 import React from 'react';
 import Work from './Work';
 import { worksData } from '@/data/worksData';
+import { AiOutlineRight } from 'react-icons/ai';
 
 const Works = () => {
   return (
@@ -20,6 +30,7 @@ const Works = () => {
         className={`works`}
         as={`section`}
         mt={0}
+        mb={8}
         templateColumns={{ base: `repeat(1,1fr)`, sm: `repeat(2,1fr)` }}
         gap={`6`}
       >
@@ -33,6 +44,19 @@ const Works = () => {
           />
         ))}
       </Grid>
+      <Center mb={`8`}>
+        <Link href={`/works`} _hover={{ textDecor: `none` }}>
+          <ButtonGroup>
+            <Button
+              variant={`ghost`}
+              colorScheme={`pink`}
+              textTransform={`uppercase`}
+            >
+              More &nbsp; <Icon as={AiOutlineRight} />
+            </Button>
+          </ButtonGroup>
+        </Link>
+      </Center>
     </Box>
   );
 };

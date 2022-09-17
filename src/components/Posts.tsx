@@ -30,7 +30,7 @@ const Posts: React.FC<Props> = ({ posts }) => {
       >
         Posts
       </Heading>
-      <Box mb={`4`}>
+      <Box mb={4}>
         {posts.items.map((post) => (
           <Box key={post.fields.slug} mb={`2`}>
             <Post post={post} />
@@ -40,8 +40,12 @@ const Posts: React.FC<Props> = ({ posts }) => {
       <Center mb={`8`}>
         <Link href={`/posts/page/1`}>
           <ButtonGroup>
-            <Button colorScheme={`teal`} textTransform={`uppercase`}>
-              Read More &nbsp; <Icon as={AiOutlineRight} />
+            <Button
+              variant={`ghost`}
+              colorScheme={`pink`}
+              textTransform={`uppercase`}
+            >
+              More &nbsp; <Icon as={AiOutlineRight} />
             </Button>
           </ButtonGroup>
         </Link>
