@@ -123,7 +123,7 @@ export const worksData: TWorkData[] = [
             rounded="md"
             textColor="black"
           >
-            <Wrap spacing={4}>
+            <Wrap spacing={4} justify="center">
               {colorItem(`#102326`)}
               {colorItem(`#2B3D3C`)}
               {colorItem(`#FFF4E6`)}
