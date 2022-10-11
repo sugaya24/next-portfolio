@@ -1,5 +1,5 @@
 import { TWorkData } from '@/pages/works/[title]';
-import { Text } from '@chakra-ui/react';
+import { Box, Heading, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import {
   SiReact,
   SiRedux,
@@ -12,9 +12,129 @@ import {
   SiTailwindcss,
   SiFirebase,
   SiAmazons3,
+  SiPrisma,
 } from 'react-icons/si';
 
+const colorItem = (color: string) => {
+  return (
+    <WrapItem>
+      <Box w="full" display="flex" flexDir="column" justifyContent="center">
+        <Box w="full" display="flex" justifyContent="center">
+          <Box w={10} h={10} bgColor={color} rounded="full"></Box>
+        </Box>
+        <Text textColor="#102326" fontStyle="italic" fontWeight="semi-bold">
+          {color}
+        </Text>
+      </Box>
+    </WrapItem>
+  );
+};
+
 export const worksData: TWorkData[] = [
+  {
+    id: 7,
+    title: `Pomodoro Timer`,
+    link: {
+      url: `https://pomodoro-timer-seven-gilt.vercel.app`,
+      github: `https://github.com/sugaya24/pomodoro-timer`,
+    },
+    slug: `pomodoro-timer`,
+    src: `/images/pomodoro-timer_image.png`,
+    stack: [
+      `Next.js`,
+      `TypeScript`,
+      `Tailwind CSS`,
+      `Firebase auth`,
+      `MongoDB`,
+      `Prisma`,
+    ],
+    stackIcon: [
+      <SiNextdotjs key={`SiNextdotjs`} />,
+      <SiTypescript key={`SiTypescript`} />,
+      <SiTailwindcss key={`SiTailwindcss`} />,
+      <SiFirebase key={`SiFirebase`} />,
+      <SiMongodb key={`MongoDB`} />,
+      <SiPrisma key={`Prisma`} />,
+    ],
+    description: (
+      <>
+        <Box mb={8}>
+          <Heading as="h1" mb={4}>
+            Description
+          </Heading>
+          <Text>
+            Simple Pomodoro By setting a time, you can focus on a task you set.
+            You can keep track of the number of rounds you have completed so
+            far. Focus and Break time can also be set. You can also use it
+            without logging in.
+          </Text>
+        </Box>
+        <Box mb={8}>
+          <Heading as="h1" mb={4}>
+            The Challenges
+          </Heading>
+          <Box mb={2}>
+            <Heading as="h2" size="md">
+              Building REST API
+            </Heading>
+            <Text>
+              Created an API using API routes, a Next.js feature, and designed a
+              RESTful API to manage Users and Tasks.
+            </Text>
+          </Box>
+          <Box mb={2}>
+            <Heading as="h2" size="md">
+              Integration using MongoDB and Prisma
+            </Heading>
+            <Text>
+              Prisma was adopted as the MongoDB ORM. The operation is intuitive
+              and easy to understand, and I was able to proceed while
+              maintaining a quick development speed with an awareness of
+              type-safe development.
+            </Text>
+          </Box>
+          <Box mb={2}>
+            <Heading as="h2" size="md">
+              Designing UI focused on Modal
+            </Heading>
+            <Text>
+              What I tried to do with this application was to reduce the number
+              of pages and screen transitions as much as possible. To achieve
+              this, I decided to use Modal, which is basically used for adding
+              Tasks and setting Timer.
+            </Text>
+          </Box>
+        </Box>
+        <Box mb={8}>
+          <Heading as="h1" mb={4}>
+            Designing
+          </Heading>
+          <Heading as="h2" size="md" mb={2}>
+            Color Theme
+          </Heading>
+          <Box
+            w="full"
+            h="auto"
+            p={4}
+            display="flex"
+            justifyContent="center"
+            bgColor="white"
+            boxShadow="md"
+            rounded="md"
+            textColor="black"
+          >
+            <Wrap spacing={4}>
+              {colorItem(`#102326`)}
+              {colorItem(`#2B3D3C`)}
+              {colorItem(`#FFF4E6`)}
+              {colorItem(`#22B595`)}
+              {colorItem(`#C6570D`)}
+            </Wrap>
+          </Box>
+        </Box>
+      </>
+    ),
+  },
   {
     id: 6,
     title: `Question Box`,
