@@ -52,17 +52,17 @@ const About = () => {
           h={`200px`}
           zIndex={`-1`}
           _after={{
-            transition: `all .3s ease`,
-            content: `""`,
-            w: `80%`,
-            paddingTop: `80%`,
             pos: `absolute`,
-            top: `10%`,
-            left: `10%`,
-            bgColor: colorMode === `dark` ? `#FFFAAA` : `none`,
-            filter: `blur(2px)`,
-            borderRadius: `50%`,
-            zIndex: -1,
+            w: `100%`,
+            h: `100%`,
+            content: `""`,
+            top: `0`,
+            left: `0`,
+            bgSize: `100%`,
+            bgRepeat: `no-repeat`,
+            bgPos: `center`,
+            bgImage: colorMode === `dark` ? `/images/blob.png` : ``,
+            zIndex: `-1`,
           }}
         >
           <Box>
