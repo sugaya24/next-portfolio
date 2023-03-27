@@ -48,14 +48,17 @@ const ProfileSection = () => {
             )}
           </Heading>
           <Text mb={`5`}>
-            I&apos;m a Front-end Developer and primarily focus on writing clean,
-            elegant and efficient code. Specialize in React.js.
+            I am a front-end developer and a particular focus on React.js and
+            Next.js. Through self-directed study and hands-on projects, I have
+            gained a solid understanding of these technologies and their
+            applications. I am eager to continue building my skills and
+            contributing to exciting projects in the industry.
           </Text>
           <Box mb={10}>{skills}</Box>
           <HStack>
             <CuiLink
               mr={`2`}
-              href={`https://docs.google.com/document/d/1l_A6gOWWpp_sb9BMtj42Wz4LBzcXWK06zB_LLY84u5A/edit`}
+              href={`https://drive.google.com/file/d/1E7hC-6KhI9wI0h8ua2dH__6IbU6Z0h2Y/view?usp=sharing`}
             >
               <HStack textDecor={`underline`}>
                 <Icon as={FaFileAlt} />
