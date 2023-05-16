@@ -51,9 +51,9 @@ const WorkDetail = () => {
         </Box>
         <HStack className={`web-url`} mt={`24px`}>
           <Text as={`h3`} fontWeight={`600`}>
-            URL
+            Live:
           </Text>
-          <CuiLink href={link?.url}>
+          <CuiLink href={link?.url} target="_blank">
             <HStack>
               <Box>
                 <Text wordBreak={`break-word`}>{link?.url}</Text>
@@ -67,9 +67,9 @@ const WorkDetail = () => {
         </HStack>
         <HStack className={`github-link`} w={`100%`} mt={`8px`}>
           <Text as={`h3`} fontWeight={`600`}>
-            Github
+            GitHub:
           </Text>
-          <CuiLink href={link?.github}>
+          <CuiLink href={link?.github} target="_blank">
             <HStack>
               <Box>
                 <Text wordBreak={`break-word`}>{link?.github}</Text>
